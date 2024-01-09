@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pdfrag"
+version = "0.1.0"
+description = "A chatbot to answer questions on pdfs."
+authors = ["Pilar Madariaga <pilar.madariaga@gft.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+gradio = "^4.12.0"
+langchain = "^0.0.353"
+gpt4all = "^2.0.2"
+tiktoken = "^0.5.2"
+pypdf = "^3.17.4"
+python-dotenv = "^1.0.0"
+pymupdf = "^1.23.8"
+pdfplumber = "^0.10.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
