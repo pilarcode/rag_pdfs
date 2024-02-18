@@ -4,23 +4,24 @@ import gradio as gr
 from dotenv import load_dotenv
 import sys
 sys.path.append("../src")
-from assistant import Assistant
+from rag.assistant import Assistant
 
+
+# load environment variables
 load_dotenv()
-
-UI_PORT: int = int(os.getenv("UI_PORT", "8046"))
-
-
 PDF_PATH= os.environ["PDF_PATH"]
 FAISS_INDEX_PATH= os.environ["FAISS_INDEX_PATH"]
+UI_PORT: int = int(os.getenv("UI_PORT", "8046"))
 
-
+# load assistant
 qa_assistant = Assistant(pdf_path=PDF_PATH, index_path=FAISS_INDEX_PATH)
+
+
 def respond(question, history):
     response = qa_assistant.request(question)
     return response
 
-
+# Define UI
 PLACE_HOLDER = "¡Hola!, ¿En que te puedo ayudar?"
 BOTH_ICON = "assets/bot.png"
 USER_ICON = "assets/user.png"
