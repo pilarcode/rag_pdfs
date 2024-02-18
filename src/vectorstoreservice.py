@@ -10,6 +10,7 @@ from langchain_community.vectorstores import DeepLake
 
 @dataclass
 class FaissService:
+    """FaissService Class"""
     docs: list
     index_path: str
     def __post_init__(self):
