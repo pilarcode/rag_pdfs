@@ -1,6 +1,9 @@
 # Career Assistant
 Chatbot to answer questions about pdfs
 
+![caption](app\assets\screen-capture.gif)
+
+
 # Run the app
 
 ```bash

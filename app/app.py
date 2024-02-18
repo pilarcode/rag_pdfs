@@ -2,42 +2,19 @@
 import os
 import gradio as gr
 from dotenv import load_dotenv
-from pdfrag.assistant import Assistant
-from pdfrag.configuration import Configuration
-from pdfrag.utils import logger
-
-log = logger.init(level="DEBUG", save_log=True)
-
+import sys
+sys.path.append("../src")
+from assistant import Assistant
 
 load_dotenv()
 
 UI_PORT: int = int(os.getenv("UI_PORT", "8046"))
 
 
-log.info("- Load the configuration")
+FAISS_INDEX_PATH = "../app/scenario/faiss_index"
+PDF_PATH = "../app/scenario/How-Women-Rise.pdf"
 
-config = Configuration()
-
-log.debug(f"specs path: {config.specs_path}")
-log.debug(f"index path: {config.vector_index_path}")
-log.debug(f"vector store type: {config.vector_store_type}")
-log.debug(f"AZURE_EMBEDDINGS_DEPLOYMENT: {config.AZURE_EMBEDDINGS_DEPLOYMENT}")
-log.debug(f"AZURE_LLM_DEPLOYMENT: {config.AZURE_LLM_DEPLOYMENT}")
-log.debug(f"OPENAI_API_VERSION: {config.OPENAI_API_VERSION}")
-log.debug(f"CHUNK_SIZE: {config.CHUNK_SIZE}")
-log.debug(f"AZURE_OPENAI_ENDPOINT: {config.AZURE_OPENAI_ENDPOINT}")
-
-
-
-log.info("- Create the assistant instance")
-qa_assistant = Assistant(
-    docs_path=config.jsons_path,
-    specs_path=config.specs_path,
-    vector_db_type=config.vector_store_type,
-    vector_index_path=config.vector_index_path,
-)
-
-
+qa_assistant = Assistant(pdf_path=PDF_PATH, index_path=FAISS_INDEX_PATH)
 def respond(question, history):
     """
     Get the response for a given question using the QA assistant.
@@ -53,8 +30,7 @@ def respond(question, history):
     return response
 
 
-log.info("launch the user interface")
-PLACE_HOLDER = "¡Hola!, ¿Qué servicio está buscando?"
+PLACE_HOLDER = "¡Hola!, ¿En que te puedo ayudar?"
 BOTH_ICON = "assets/bot.png"
 USER_ICON = "assets/user.png"
 chatbot = gr.ChatInterface(
@@ -70,4 +46,4 @@ chatbot = gr.ChatInterface(
 )
 
 if __name__ == "__main__":
-    chatbot.launch(server_name="0.0.0.0", server_port=UI_PORT, auth=("admin", "ai_2024"),favicon_path="assets/favicon.ico", auth_message=" Por favor inicia sesión 🔒")
+    chatbot.launch(server_name="0.0.0.0", server_port=UI_PORT)

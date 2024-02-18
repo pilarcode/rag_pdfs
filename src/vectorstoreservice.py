@@ -36,7 +36,6 @@ class FaissService:
     
 
     def load_index(self):
-        print("Cargando el index")
         self.index=  FAISS.load_local(self.index_path, self.embeddings_function)
         return self.index
 
