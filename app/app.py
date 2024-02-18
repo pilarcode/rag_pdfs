@@ -1,14 +1,13 @@
 
 import os
 import gradio as gr
-from dotenv import load_dotenv
-import sys
-sys.path.append("../src")
+from dotenv import load_dotenv,find_dotenv
 from rag.assistant import Assistant
 
 
 # load environment variables
-load_dotenv()
+_ =load_dotenv(find_dotenv(".env"))
+
 PDF_PATH= os.environ["PDF_PATH"]
 FAISS_INDEX_PATH= os.environ["FAISS_INDEX_PATH"]
 UI_PORT: int = int(os.getenv("UI_PORT", "8046"))

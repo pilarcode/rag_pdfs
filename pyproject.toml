@@ -7,10 +7,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-langchain = "^0.1.7"
+langchain = "0.1.6"
 gradio = "^4.19.1"
 cohere = "^4.47"
 python-dotenv = "^1.0.1"
+langchain-community = "0.0.19"
 
 
 [build-system]

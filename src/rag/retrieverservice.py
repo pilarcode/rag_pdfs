@@ -6,7 +6,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain.schema.runnable import RunnableMap
 from langchain_core.runnables import RunnableParallel
 from rag.vectorstoreservice import FaissService
-from prompts import PROMPT_TEMPLATE
+from rag.prompts import PROMPT_TEMPLATE
 
 @dataclass
 class BasicRetrieverService:
