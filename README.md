@@ -10,8 +10,7 @@ Chatbot to answer questions about pdfs
 cd app
 python app_entrypoint.py
 ```
-To interact with the assistant, we recommend running the backend app and then opening one of the UIs developed in this project in your browser.
-e.g., http://localhost:8046
+To interact with the assistant,open  http://localhost:8046 in your browser 
 
 
 # Deployment 
