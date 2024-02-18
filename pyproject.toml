@@ -12,6 +12,8 @@ gradio = "^4.19.1"
 cohere = "^4.47"
 python-dotenv = "^1.0.1"
 langchain-community = "0.0.19"
+faiss-cpu = "^1.7.4"
+pypdf = "^4.0.2"
 
 
 [build-system]
