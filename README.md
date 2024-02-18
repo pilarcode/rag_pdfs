@@ -1,8 +1,7 @@
 # Career Assistant
 Chatbot to answer questions about pdfs
 
-![caption](app\assets\screen-capture.gif)
-
+![demo](https://github.com/pilarcode/rag_pdfs/blob/main/app/assets/screen-capture.gif)
 
 # Run the app
 
