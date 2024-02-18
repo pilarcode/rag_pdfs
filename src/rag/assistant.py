@@ -1,15 +1,16 @@
 from dataclasses import dataclass
-from vectorstoreservice import FaissService
-from documentservice import DocumentService
-from retrieverservice import BasicRetrieverService
+from rag.vectorstoreservice import FaissService
+from rag.documentservice import DocumentService
+from rag.retrieverservice import BasicRetrieverService
 
-K= 5
+
+DEFAULT_K= 5
 @dataclass
 class Assistant:
     """ Assistant Class"""
     pdf_path: str
     index_path: str
-    k:int = K
+    k:int = DEFAULT_K
 
     def __post_init__(self):
         """

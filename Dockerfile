@@ -13,9 +13,9 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Copy the application code and data to the container
-COPY app* .env /app/
-COPY assets  /app/assets
-COPY scenario /app/scenario/
+COPY .env /app/
+COPY /app/assets  /app/assets
+COPY /app/scenario /app/scenario/
 
 # Set the working directory to /app
 WORKDIR /app

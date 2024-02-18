@@ -1,5 +1,0 @@
-app/pdfrag-0.1.0-py3-none-any.whl
-# uvicorn==0.24.0.post1
-# fastapi ==0.104.1
-gradio == 4.12.0
-gradio-client == 0.8.0
